@@ -1,0 +1,17 @@
+name: "Hello World workflow" 
+
+on:
+  push:
+    branches:
+      - main
+      - production
+
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print hello world"
+        run: echo "🎉 The job is automatically triggered by a ${{github.event_name}} event."
+
+      - name: "Print current data"
+        run: date
