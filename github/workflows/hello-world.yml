@@ -1,8 +1,17 @@
-name: Hello World
-run-name: helloWorld actions is running
-on: [push]
+name: "Hello World workflow" 
+
+on:
+  push:
+    branches:
+      - master
+      - production
+
 jobs:
-  Explore-GitHub-Actions:
+  hello_world:
     runs-on: ubuntu-latest
     steps:
-      -run: echo "🎉 The job is automatically triggered by a ${{github.event_name}} event."
+      - name: "Print hello world"
+        run: echo "🎉 The job is automatically triggered by a ${{github.event_name}} event."
+
+      - name: "Print current data"
+        run: date
