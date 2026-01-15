@@ -7,7 +7,7 @@ on:
             - production            
     pull_request:
         branches:
-            - master
+            - main
         types:
             - opened
             - closed
@@ -29,14 +29,14 @@ jobs:
               run: echo "Pull request initiated"
     
     on_pull_request_open:
-        if: github.event_name=='pull_request' && github.action.name =='opened'
+        if: github.event_name=='pull_request' && github.event.action =='opened'
         runs-on: ubuntu-latest
         steps:
             - name: Pull request opened
               run: echo 'Pull request opened'
     
     on_pull_request_close:
-        if: github.event_name == 'pull_request' && github.action.name == 'closed'
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
         runs-on: ubuntu-latest
         steps:
             - name: Pull request closed
