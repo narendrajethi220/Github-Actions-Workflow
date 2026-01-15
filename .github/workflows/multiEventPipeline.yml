@@ -7,7 +7,7 @@ on:
             - production            
     pull_request:
         branches:
-            - master
+            - main
         types:
             - opened
             - closed
