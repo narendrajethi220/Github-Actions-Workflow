@@ -11,10 +11,40 @@ on:
         types:
             - opened
             - closed
+    workflow_dispatch:
 
 jobs:
-    code_pushed:
+    on_push:
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps:
             - name: "Code pushed into main/production branch"
               run: echo "Code pushed into main/production branch"
+    
+    on_pull:
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Pull_request initiated"
+              run: echo "Pull request initiated"
+    
+    on_pull_request_open:
+        if: github.event_name=='pull_request' && github.action.name =='opened'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Pull request opened
+              run: echo 'Pull request opened'
+    
+    on_pull_request_close:
+        if: github.event_name == 'pull_request' && github.action.name == 'closed'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Pull request closed
+              run: echo 'Pull request closed'
+    
+    on_workflow_dispatch: 
+        if: github.event_name =='workflow_dispatch'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Manually Triggering Jobs from UI"
+              run: echo "Running on workflow dispatch" 
