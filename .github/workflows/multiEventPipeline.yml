@@ -25,22 +25,22 @@ jobs:
         if: github.event_name == 'pull_request'
         runs-on: ubuntu-latest
         steps:
-            - name: "Pull_request initiated"
-              run: echo "Pull request initiated"
+            - name: "Running on Pull_request"
+              run: echo "Running on Pull request"
     
     on_pull_request_open:
         if: github.event_name=='pull_request' && github.event.action =='opened'
         runs-on: ubuntu-latest
         steps:
-            - name: Pull request opened
-              run: echo 'Pull request opened'
+            - name: "Runnnig on Pull request opened"
+              run: echo "Running on Pull request opened"
     
     on_pull_request_close:
         if: github.event_name == 'pull_request' && github.event.action == 'closed'
         runs-on: ubuntu-latest
         steps:
-            - name: Pull request closed
-              run: echo 'Pull request closed'
+            - name: "Running on Pull request closed"
+              run: echo "Running on Pull request closed"
     
     on_workflow_dispatch: 
         if: github.event_name =='workflow_dispatch'
