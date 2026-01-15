@@ -1,0 +1,20 @@
+name: "MulitEvent Pipeline/Workflow"
+
+on: 
+    push:   
+        branches:
+            - main
+            - production            
+    pull_request:
+        branches:
+            - master
+        types:
+            - opened
+            - closed
+
+jobs:
+    code_pushed:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Code pushed into main/production branch"
+              run: echo "Code pushed into main/production branch"
